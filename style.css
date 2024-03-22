@@ -1,0 +1,120 @@
+:root {
+  --light-green: hsl(160, 90%, 90%);
+  --deep-green: hsl(160, 10%, 20%);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+input {
+  padding: 0;
+  display: block;
+
+  &[type="color"] {
+    width: 90%;
+    margin: 0 auto;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+label {
+  display: block;
+  padding-left: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+body {
+  background-color: var(--light-green);
+}
+
+button {
+  height: 3em;
+  width: 6em;
+  background-color: transparent;
+  border-radius: 10%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  width: 40%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+
+  border: 1px black solid;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  width: 600px;
+  height: 600px;
+}
+
+.grid {
+  width: 37.5px;
+  height: 37.5px;
+  border: 1px black solid;
+}
+
+.slider-container {
+  width: 40%;
+}
+
+#slider-input {
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 16px;
+  overflow: hidden;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::-webkit-slider-runnable-track {
+    height: 18px;
+    background: white;
+    border-radius: 16px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 18px;
+    width: 18px;
+    background-color: var(--deep-green);
+    border-radius: 50%;
+  }
+}
