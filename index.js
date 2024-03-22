@@ -3,10 +3,12 @@ const gridContainer = document.querySelector(".grid-container");
 const gridContainerDimension = gridContainer.clientWidth;
 const sliderLabel = document.querySelector("label");
 const sliderInput = document.querySelector("#slider-input");
+const colorPicker = document.querySelector("#color-picker");
 
 const grids = [];
 let numOfGridEachRow = 16;
 let isDrawing = false;
+let color = "black";
 
 function createGrid() {
   const fragment = document.createDocumentFragment();
@@ -28,12 +30,13 @@ function setBackgroundColor(event) {
   if (isDrawing) {
     const curBrightness = event.target.style.filter || "100";
     const curBrightnessValue = curBrightness.replace(/\D/g, "");
+
     if (event.target.classList.contains("painted")) {
       event.target.style.filter = `brightness(${curBrightnessValue - 10}%)`;
     }
 
     event.target.classList.add("painted");
-    event.target.style.backgroundColor = "yellow";
+    event.target.style.backgroundColor = color;
   }
 }
 
@@ -46,9 +49,14 @@ function removeGrid() {
 function clearGrid() {
   for (const grid of grids) {
     grid.style.backgroundColor = "white";
-    grid.style.filter = "none";
+    grid.style.filter = "brightness(100%)";
+    grid.classList.remove("painted");
   }
 }
+
+colorPicker.addEventListener("change", (event) => {
+  color = event.target.value;
+});
 
 function handleGridEvent() {
   gridContainer.addEventListener("click", () => (isDrawing = !isDrawing));
