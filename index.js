@@ -49,7 +49,7 @@ function setBackgroundColor(event) {
     }
 
     if (isRandom)
-      color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     else if (isEraser) color = "";
     else color = defaultColor;
 
@@ -77,6 +77,14 @@ function toggleGridLine() {
 function handleGridEvent() {
   gridContainer.addEventListener("click", (event) => {
     isDrawing = !isDrawing;
+    if (!event.target.classList.contains("grid-container")) {
+      if (isRandom)
+        event.target.style.backgroundColor = `#${Math.floor(
+          Math.random() * 16777215,
+        ).toString(16)}`;
+      else if (isEraser) event.target.style.backgroundColor = "";
+      else event.target.style.backgroundColor = defaultColor;
+    }
   });
   gridContainer.addEventListener("mouseover", setBackgroundColor);
   gridContainer.addEventListener("mouseleave", () => {
