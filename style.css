@@ -53,6 +53,12 @@ button {
   width: 6em;
   background-color: transparent;
   border-radius: 10%;
+  cursor: pointer;
+  transition: 100ms;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .button-container {
@@ -79,16 +85,19 @@ button {
   background-color: white;
   width: 600px;
   height: 600px;
-}
 
-.grid {
-  width: 37.5px;
-  height: 37.5px;
-  border: 1px black solid;
+  & div:hover {
+    background-color: lightgrey;
+  }
 }
 
 .slider-container {
   width: 40%;
+}
+
+.selected {
+  color: blue;
+  border: 1px solid blue;
 }
 
 #slider-input {
